@@ -56,36 +56,50 @@ ping h2 ke h5 (terjadi duplikat)
 <br/><br/>
 
 ## Tugas 3: Aplikasi Ryu Load Balancer
+<br/>
+Percobaan di AWS Error <br/>
 
-Mulai mininet dengan topologi standar
+![image](https://user-images.githubusercontent.com/80938624/172886542-2b5cfc96-ad97-4938-add8-92b61d0cb5f2.png)
+
+Percobaan di Ubuntu Desktop
+1) Percobaan 1<br/>
+Pada Terminal 1, Mulai mininet dengan topologi standar
 ```
 sudo mn --controller=remote --topo single,4 --mac
 ```
-
-Tentukan virtual ip server: 10.0.0.100
+Pada terminal 2, jalankan ryu llb.py
+```
+ryu run llb.py
+```
+Kemudian pindah ke terminal 1, <br/>Tentukan virtual ip server: 10.0.0.100
 h1 sebagai client web untuk mengakses bisa gunakan:
 ```
 mininet> h1 curl 10.0.0.100
 ```
-
 Algoritme untuk berganti-ganti ke server web h2 - h4 cukup gunakan round-robin
-
 h2 s/d h4 sebagai web server: semisal dijalankan dengan perintah dalam console
 ```
 mininet> h2 python3 -m http.server 80 & 
 ```
 Hal yg sama untuk h3 dan h4 <br/> <br/>
-
 Screenshot:<br/>
 ![image](https://user-images.githubusercontent.com/80938624/172874218-0cb4d7be-ecd2-43c3-bc3f-8adcaa427c69.png) <br/>
-memulai mininet dan menjalankan ryu llb.py<br/>
-
+memulai mininet dan menjalankan ryu llb.py<br/><br/>
 ![image](https://user-images.githubusercontent.com/80938624/172874272-5ed85eee-bb8f-470b-a4c5-7f89856ca385.png) <br/>
-h2 s/d h4 sebagai web server<br/>
-
+h2 s/d h4 sebagai web server<br/><br/>
 ![image](https://user-images.githubusercontent.com/80938624/172874306-453de119-06f4-4cf8-a9f9-d6e35b0021a4.png) <br/>
 h1 sebagai client web
 <br/><br/>
+
+Percobaan 2<br/>
+Menjalankan mininet dengan topologi topo-lb.py pada terminal 1, dan menjalankan ryu-manager rr_lb.py pada terminal 2 <br/>
+![image](https://user-images.githubusercontent.com/80938624/172887595-9e9ca692-9e0c-4b2b-8407-b71b02e24721.png)<br/>
+menjalankan mininet dan ryu<br/><br/>
+Cek Koneksi
+![image](https://user-images.githubusercontent.com/80938624/172887645-d59df68b-c4d9-49c8-a748-aec6f5101421.png)<br/>
+Cek Koneksi Gagal
+<br/>
+
 
 ## Tugas 4
 
